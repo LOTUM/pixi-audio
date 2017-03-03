@@ -1,4 +1,4 @@
-import PIXI from'pixi.js';
+import {loaders} from 'pixi.js';
 import utils from './utils';
 import AudioManager from './AudioManager';
 import {audioParser, audioUrlParser} from './audioParser';
@@ -10,8 +10,8 @@ let audio = {
   audioParser : audioParser
 };
 
-if(!PIXI.AudioManager){
-  let Loader = PIXI.loaders.Loader;
+if(!window.PIXI.AudioManager){
+  let Loader = loaders.Loader;
   Loader.addPixiMiddleware(audioParser);
 
   let baseAdd = Loader.prototype.add;
@@ -29,10 +29,10 @@ if(!PIXI.AudioManager){
     return baseAdd.call(this, name, url, options, cb);
   };
 
-  PIXI.audio = audio;
-  PIXI.loader = new PIXI.loaders.Loader();
-  PIXI.loaders.audioParser = audioParser;
-  PIXI.audioManager = new AudioManager();
+  window.PIXI.audio = audio;
+  window.PIXI.loader = new PIXI.loaders.Loader();
+  window.PIXI.loaders.audioParser = audioParser;
+  window.PIXI.audioManager = new AudioManager();
 }
 
 export default audio;

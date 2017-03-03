@@ -1,7 +1,7 @@
-import PIXI from 'pixi.js';
+import {utils as PIXIUtils} from 'pixi.js';
 import utils from './utils';
 
-export default class Audio extends PIXI.utils.EventEmitter{
+export default class Audio extends PIXIUtils.EventEmitter{
   _loop = false;
   _paused = false;
   _muted = false;
