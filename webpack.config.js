@@ -8,10 +8,10 @@ var DEV = process.env.NODE_ENV !== "production";
 var ENTRY = ['./src/index.js'];
 var EXTERNALS = {};
 
-if(DEV){
-	ENTRY.unshift('pixi.js');
-}else{
-	EXTERNALS['pixi.js'] = "PIXI";
+if (DEV) {
+    ENTRY.unshift('pixi.js');
+} else {
+    EXTERNALS['pixi.js'] = "PIXI";
 }
 
 module.exports = {
